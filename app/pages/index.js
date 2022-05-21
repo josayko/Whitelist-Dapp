@@ -187,7 +187,7 @@ export default function Home() {
       //  assign web3Modal instance to the reference object
       // `current` value is persisted throughout component lifetime
       web3ModalRef.current = new Web3Modal({
-        network: 'hardhat',
+        network: 'goerli',
         providerOptions: {},
         disableInjectedProvider: false
       });
