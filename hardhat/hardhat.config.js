@@ -21,6 +21,9 @@ module.exports = {
     goerli: {
       url: ALCHEMY_API_KEY_URL,
       accounts: [GOERLI_PRIVATE_KEY]
+    },
+    hardhat: {
+      chainId: 1337
     }
   }
 };
