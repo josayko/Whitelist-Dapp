@@ -65,3 +65,5 @@ export const abi = [
 ];
 export const WHITELIST_CONTRACT_ADDRESS =
   '0xAfb07FA35d6845c4E563FAf046Ea2d3bd4811695';
+
+export const ALCHEMY_ID = '72z6bLa_srtQmqyu7nJMM_H7aXNBmUx_';

@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import Web3Modal from 'web3modal';
 import { providers, Contract } from 'ethers';
 import { useEffect, useRef, useState } from 'react';
 import { WHITELIST_CONTRACT_ADDRESS, abi } from '../constants';
+
+import Web3Modal from 'web3modal';
+
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export default function Home() {
   // keep track wheter wallet is connected
@@ -168,16 +171,20 @@ export default function Home() {
         return <button className={styles.button}>Loading...</button>;
       } else {
         return (
-          <button onClick={addAddressToWhitelist} className={styles.button}>
-            Join the Whitelist
-          </button>
+          <>
+            <ConnectButton />
+            <button onClick={addAddressToWhitelist} className={styles.button}>
+              Join the Whitelist
+            </button>
+          </>
         );
       }
     } else {
       return (
-        <button onClick={connectWallet} className={styles.button}>
-          Connect your wallet
-        </button>
+        <ConnectButton onClick={connectWallet} />
+        // <button onClick={connectWallet} className={styles.button}>
+        //   Connect your wallet
+        // </button>
       );
     }
   };
