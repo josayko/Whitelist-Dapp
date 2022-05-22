@@ -12,7 +12,7 @@ import {
 import { chain, createClient, WagmiProvider } from 'wagmi';
 
 const { chains, provider } = configureChains(
-  [chain.goerli, chain.rinkeby],
+  [chain.goerli, chain.rinkeby, chain.localhost],
   [apiProvider.alchemy(process.env.ALCHEMY_ID), apiProvider.fallback()]
 );
 

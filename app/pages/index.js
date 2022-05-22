@@ -1,7 +1,12 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { useEffect, useState } from 'react';
-import { WHITELIST_CONTRACT_ADDRESS, abi } from '../constants';
+import {
+  CHAIN_ID,
+  CHAIN_NAME,
+  WHITELIST_CONTRACT_ADDRESS,
+  abi
+} from '../constants';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 import {
@@ -96,7 +101,7 @@ export default function Home() {
       if (account) {
         setWalletConnected(true);
         setJoinedWhiteList(false);
-        if (activeChain.id === 5) {
+        if (activeChain.id === CHAIN_ID) {
           checkIfAddressInWhitelist();
           getNumberOfWhitelisted();
         }
@@ -126,7 +131,7 @@ export default function Home() {
         );
       } else if (loading) {
         return <button className={styles.button}>Loading...</button>;
-      } else if (account && activeChain.id === 5) {
+      } else if (account && activeChain.id === CHAIN_ID) {
         return (
           <button onClick={addAddressToWhitelist} className={styles.button}>
             Join the Whitelist
@@ -138,7 +143,7 @@ export default function Home() {
 
   const renderInfo = () => {
     if (walletConnected) {
-      if (activeChain && activeChain.id === 5) {
+      if (activeChain && activeChain.id === CHAIN_ID) {
         return (
           <div className={styles.description}>
             {numberOfWhitelisted} have already joined the Whitelist !
@@ -147,7 +152,7 @@ export default function Home() {
       } else {
         return (
           <div className={styles.error}>
-            Wrong Network ! Connect to Goerli testnet
+            {`Wrong Network ! Connect to ${CHAIN_NAME} testnet`}
           </div>
         );
       }
@@ -165,14 +170,18 @@ export default function Home() {
         <div>
           <h1 className={styles.title}>Welcome to Crypto Devs !</h1>
           <div className={styles.description}>
-            It's an NFT collection for developers in Crypto.
+            It&apos;s an NFT collection for developers in Crypto.
           </div>
           {renderInfo()}
           <ConnectButton />
           {renderButton()}
         </div>
         <div>
-          <img className={styles.image} src="./crypto-devs.svg" />
+          <img
+            className={styles.image}
+            src="./crypto-devs.svg"
+            alt="dev-logo"
+          />
         </div>
       </div>
       <footer className={styles.footer}>Made with &#10084; by josayko</footer>
