@@ -1,6 +1,6 @@
 // https://www.rainbowkit.com/docs/installation
 import '@rainbow-me/rainbowkit/styles.css';
-import { ALCHEMY_ID } from '../constants';
+import '../styles/globals.css';
 
 import {
   apiProvider,
@@ -12,8 +12,8 @@ import {
 import { chain, createClient, WagmiProvider } from 'wagmi';
 
 const { chains, provider } = configureChains(
-  [chain.goerli, chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
-  [apiProvider.alchemy(ALCHEMY_ID), apiProvider.fallback()]
+  [chain.goerli, chain.rinkeby],
+  [apiProvider.alchemy(process.env.ALCHEMY_ID), apiProvider.fallback()]
 );
 
 const { connectors } = getDefaultWallets({
