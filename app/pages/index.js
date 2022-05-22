@@ -93,12 +93,16 @@ export default function Home() {
    */
   const connectWallet = async () => {
     try {
-      if (account && activeChain.id === 5) {
+      if (account) {
         setWalletConnected(true);
-        checkIfAddressInWhitelist();
-        getNumberOfWhitelisted();
+        setJoinedWhiteList(false);
+        if (activeChain.id === 5) {
+          checkIfAddressInWhitelist();
+          getNumberOfWhitelisted();
+        }
       } else {
         setWalletConnected(false);
+        setJoinedWhiteList(false);
       }
     } catch (err) {
       console.error(err);
@@ -122,7 +126,7 @@ export default function Home() {
         );
       } else if (loading) {
         return <button className={styles.button}>Loading...</button>;
-      } else {
+      } else if (account && activeChain.id === 5) {
         return (
           <button onClick={addAddressToWhitelist} className={styles.button}>
             Join the Whitelist
@@ -134,11 +138,19 @@ export default function Home() {
 
   const renderInfo = () => {
     if (walletConnected) {
-      return (
-        <div className={styles.description}>
-          {numberOfWhitelisted} have already joined the Whitelist !
-        </div>
-      );
+      if (activeChain && activeChain.id === 5) {
+        return (
+          <div className={styles.description}>
+            {numberOfWhitelisted} have already joined the Whitelist !
+          </div>
+        );
+      } else {
+        return (
+          <div className={styles.error}>
+            Wrong Network ! Connect to Goerli testnet
+          </div>
+        );
+      }
     }
   };
 
