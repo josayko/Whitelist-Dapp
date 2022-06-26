@@ -1,6 +1,6 @@
 # Whitelist Dapp - Hardhat
 
-> An instance of this contract has been deployed on Ethereum Goerli testnet: https://goerli.etherscan.io/address/0xAfb07FA35d6845c4E563FAf046Ea2d3bd4811695
+> An instance of this contract has been deployed on Ethereum Rinkeby testnet: https://rinkeby.etherscan.io/address/0xAfb07FA35d6845c4E563FAf046Ea2d3bd4811695
 
 ## Install dependencies
 
@@ -25,8 +25,8 @@ $ yarn hardhat node
 
 ```bash
 # hardhat/.env
-ALCHEMY_API_KEY_URL=https://eth-goerli.alchemyapi.io/v2/<ALCHEMY_API_KEY>
-GOERLI_PRIVATE_KEY=<ACCOUNT_PRIVATE_KEY>
+ALCHEMY_API_KEY_URL=https://eth-rinkeby.alchemyapi.io/v2/<ALCHEMY_API_KEY>
+RINKEBY_PRIVATE_KEY=<ACCOUNT_PRIVATE_KEY>
 ```
 
 #### Step 4. Customize the deployment script
@@ -124,7 +124,7 @@ export const WHITELIST_CONTRACT_ADDRESS = '<YOUR_DEPLOYED_CONTRACT_ADDRESS>';
 
 #### Step 7. Run the [app](https://github.com/josayko/Whitelist-Dapp)
 
-## Deploy on Goerli testnet
+## Deploy on Rinkeby testnet
 
 It is similar to _Deploy on a local blockchain_ procedure with some minor differences on those steps:
 
@@ -134,7 +134,7 @@ It is similar to _Deploy on a local blockchain_ procedure with some minor differ
 
 #### Step 2.
 
-- Instead of importing a hardhat node account, you just need to set an account in Metamask with Goerli testnet
+- Instead of importing a hardhat node account, you just need to set an account in Metamask with Rinkeby testnet
 
 #### Step 3.
 
@@ -148,12 +148,12 @@ It is similar to _Deploy on a local blockchain_ procedure with some minor differ
 
 ```bash
 $ yarn hardhat compile
-$ yarn hardhat run scripts/deploy.js --network goerli
+$ yarn hardhat run scripts/deploy.js --network rinkeby
 ```
 
 #### Step 6.
 
-- Don't need to set CHAIN_ID and CHAIN_NAME. Defaults are `CHAIN_ID = 5` and `CHAIN_NAME = 'Goerli'`
+- Don't need to set CHAIN_ID and CHAIN_NAME. Defaults are `CHAIN_ID = 4` and `CHAIN_NAME = 'Rinkeby'`
 
 #### Step 7.
 

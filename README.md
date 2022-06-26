@@ -32,16 +32,6 @@ $ yarn
 
 #### Run locally
 
-1. Create a `.env.local` file in `app/` directory and set your `ALCHEMY_ID`
-   > You need to create a new app on [Alchemy](https://www.alchemy.com) to get an API KEY (or ALCHEMY_ID). Alternatively you can create an app on [Infura](https://infura.io).
-
-```bash
-# app/.env.local
-ALCHEMY_ID=<YOUR_API_KEY>
-```
-
-2. Build and run the app
-
 ```bash
 $ yarn build
 $ yarn start

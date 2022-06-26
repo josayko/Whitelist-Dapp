@@ -1,5 +1,5 @@
-export const CHAIN_ID = 5;
-export const CHAIN_NAME = 'Goerli';
+export const CHAIN_ID = 4;
+export const CHAIN_NAME = 'Rinkeby';
 export const abi = [
   {
     inputs: [
